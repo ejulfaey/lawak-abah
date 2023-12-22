@@ -1,14 +1,15 @@
 import { motion, wrap } from "framer-motion";
-import { Jokes } from "../lib/store";
 import JokeAnswer from "./JokeAnswer";
+import { Joke } from "@/lib/type";
 
 type Props = {
     page: number,
     direction: number,
-    paginate: (num: number) => void
+    paginate: (num: number) => void,
+    jokes: Joke[]
 }
 
-const JokeCard = ({ page, direction, paginate }: Props) => {
+const JokeCard = ({ page, direction, paginate, jokes }: Props) => {
 
     const variants = {
         enter: (direction: number) => {
@@ -35,8 +36,8 @@ const JokeCard = ({ page, direction, paginate }: Props) => {
     const swipePower = (offset: number, velocity: number) => {
         return Math.abs(offset) * velocity;
     };
-    const pageIndex = wrap(0, Jokes.length, page);
-    const joke = Jokes[pageIndex]
+    const pageIndex = wrap(0, jokes.length, page);
+    const joke = jokes[pageIndex]
 
     return (
         <motion.div
@@ -63,10 +64,10 @@ const JokeCard = ({ page, direction, paginate }: Props) => {
             }}
             className="px-6 pb-20 h-full flex flex-col justify-center items-center"
         >
-            <h2 className="max-w-md lg:max-w-lg xl:max-w-2xl text-3xl lg:text-4xl xl:text-6xl text-center">
+            <h2 className="max-w-md lg:max-w-lg xl:max-w-2xl text-3xl lg:text-4xl xl:text-6xl text-center mb-20">
                 {joke.question}
             </h2>
-            <JokeAnswer joke={Jokes[pageIndex]} />
+            <JokeAnswer joke={jokes[pageIndex]} />
         </motion.div>
     );
 };
