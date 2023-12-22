@@ -61,9 +61,9 @@ const JokeCard = ({ page, direction, paginate }: Props) => {
                     paginate(-1);
                 }
             }}
-            className="px-6 h-full flex flex-col justify-center items-center"
+            className="px-6 pb-20 h-full flex flex-col justify-center items-center"
         >
-            <h2 className="max-w-md lg:max-w-lg xl:max-w-xl text-3xl text-center lg:text-4xl mb-20">
+            <h2 className="max-w-md lg:max-w-lg xl:max-w-xl text-3xl lg:text-4xl xl:text-6xl text-center  mb-20">
                 {joke.question}
             </h2>
             <JokeAnswer joke={Jokes[pageIndex]} />

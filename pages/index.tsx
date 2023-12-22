@@ -9,7 +9,6 @@ const App = () => {
 
   const paginate = (newDirection: number) => {
     const newPage: [number, number] = [page + newDirection, newDirection];
-    console.log('newPage', newPage);
     setPage(newPage);
   }
 
