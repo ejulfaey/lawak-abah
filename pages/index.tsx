@@ -44,7 +44,7 @@ const App = () => {
           <h1>Lawak Abah</h1>
         </div>
       </header>
-      <main className="relative flex-1 w-screen bg-blue-500">
+      <main className="flex-1">
         <CardContainer page={page} direction={direction} paginate={paginate} />
         <div className="absolute bottom-4 left-0 right-0 flex justify-center">
           <div className="px-4 py-2 flex items-center gap-x-2 bg-gray-800/50 rounded text-gray-300">
