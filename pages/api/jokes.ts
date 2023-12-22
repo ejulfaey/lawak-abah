@@ -20,7 +20,7 @@ export default async function handler(
         }
       }
     });
-    res.status(200).json(data);
+    res.json(data);
   } else {
     res.status(405).json({ message: 'Method not allowed' });
   }
