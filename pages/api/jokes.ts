@@ -24,7 +24,4 @@ export default async function handler(
   } else {
     res.status(405).json({ message: 'Method not allowed' });
   }
-
-
-  res.status(200).json({ name: 'John Doe' })
 }
