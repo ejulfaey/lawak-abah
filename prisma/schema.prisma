@@ -9,3 +9,34 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id    Int    @id @default(autoincrement())
+  email String @unique
+  name  String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  jokes Joke[]
+}
+
+model Joke {
+  id         Int      @id @default(autoincrement())
+  userId     Int      @default(1)
+  question   String   @db.VarChar(255)
+  answer     String   @db.VarChar(255)
+  isDark     Boolean  @default(false)
+  languageId Int
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  user     User     @relation(fields: [userId], references: [id])
+  language Language @relation(fields: [languageId], references: [id])
+}
+
+model Language {
+  id   Int    @id @default(autoincrement())
+  name String
+
+  joke Joke[]
+}
