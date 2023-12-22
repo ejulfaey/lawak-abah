@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { IconArrowNarrowLeft, IconArrowNarrowRight, IconHandMove, IconLoader } from "@tabler/icons-react";
 import CardContainer from "@/components/CardContainer";
 import CaretButton from "@/components/CaretButton";
 import Head from "next/head";
 import { JokeService } from "@/services/joke-service";
 import { Joke } from "@/lib/type";
+import Image from "next/image";
 
 const App = () => {
 
@@ -13,6 +14,7 @@ const App = () => {
   const [[page, direction], setPage] = useState([0, 0]);
 
   const fetchData = () => {
+    console.log('fetchData');
     setLoading(true);
     JokeService.getJokes()
       .then(res => setJokes(res))
@@ -22,10 +24,10 @@ const App = () => {
 
   useEffect(() => fetchData(), []);
 
-  const paginate = (newDirection: number) => {
+  const paginate = useCallback((newDirection: number) => {
     const newPage: [number, number] = [page + newDirection, newDirection];
     setPage(newPage);
-  }
+  }, [page]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -56,8 +58,8 @@ const App = () => {
       </Head>
       <div className="h-[100dvh] w-screen flex flex-col bg-black text-white">
         <header className="p-4 bg-primary-500 flex items-center gap-2">
-          <div className="p-2 bg-white rounded-full">
-            <img src="/icon-128.png" alt="icon" className="w-6 h-6 -rotate-45" />
+          <div className="p-1.5 bg-white rounded-full">
+            <Image width={24} height={24} src="/icon-128.png" alt="icon" className="-rotate-45" />
           </div>
           <div className="font-medium flex gap-2">
             <h1>Lawak Abah</h1>
