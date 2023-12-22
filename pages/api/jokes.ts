@@ -1,4 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { prisma } from '@/pages/api/prisma';
 import type { NextApiRequest, NextApiResponse } from 'next'
 
@@ -8,7 +7,19 @@ export default async function handler(
 ) {
 
   if (req.method === 'GET') {
-    const data = await prisma.joke.findMany();
+    const data = await prisma.joke.findMany({
+      select: {
+        id: true,
+        question: true,
+        answer: true,
+        isDark: true,
+        language: {
+          select: {
+            name: true
+          }
+        }
+      }
+    });
     res.status(200).json(data);
   } else {
     res.status(405).json({ message: 'Method not allowed' });
