@@ -27,7 +27,7 @@ const CardContainer = (props: Props) => {
     useEffect(() => fetchData(), []);
 
     if (loading) return (
-        <div className="w-full h-full flex justify-center items-center">
+        <div data-testid="loading" className="w-full h-full flex justify-center items-center">
             <div className="animate-spin">
                 <IconLoader size={30} />
             </div>

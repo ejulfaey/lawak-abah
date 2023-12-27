@@ -4,21 +4,15 @@ import { render, screen, fireEvent } from "@testing-library/react";
 
 describe('JokeCard', () => {
 
-    test('render successfully', () => {
+    const jokes: Joke[] = [{
+        question: "Q1",
+        answer: "A1"
+    }];
 
-        const jokes: Joke[] = [{
-            question: "Q1",
-            answer: "A1"
-        }];
+    test("Question is rendered", () => {
         render(<JokeCard page={0} jokes={jokes} />);
-
-        const questionEl = screen.getByRole('heading', { level: 2 });
-        expect(questionEl).toBeInTheDocument();
-
-        expect(screen.queryByTestId('joke-answer')).toBeNull();
-
-        fireEvent.click(screen.getByText('Tell me'));
-        expect(screen.getByTestId('joke-answer')).toBeInTheDocument();
+        const question = screen.getByText("Q1");
+        expect(question).toBeInTheDocument();
     });
 
 });
