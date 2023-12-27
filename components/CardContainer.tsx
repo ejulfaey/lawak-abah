@@ -11,13 +11,12 @@ type Props = {
     paginate: (num: number) => void;
 }
 
-const CardContainer = ({ page, direction, paginate }: Props) => {
+const CardContainer = (props: Props) => {
 
     const [jokes, setJokes] = useState<Joke[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
 
     const fetchData = () => {
-        console.log('fetchData');
         setLoading(true);
         JokeService.getJokes()
             .then((res: any) => setJokes(res))
@@ -38,8 +37,8 @@ const CardContainer = ({ page, direction, paginate }: Props) => {
     return (
         <AnimatePresence
             initial={false}
-            custom={direction}>
-            <JokeCard page={page} direction={direction} paginate={paginate} jokes={jokes} />
+            custom={props.direction}>
+            <JokeCard {...props} jokes={jokes} />
         </AnimatePresence>
     );
 };

@@ -8,27 +8,28 @@ type Props = {
 
 const JokeAnswer = ({ joke }: Props) => {
     const [toggle, setToggle] = useState<boolean>(false);
+
+    if (toggle) return (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+
+        >
+            <h1 className="text-white text-center">
+                {joke.answer}
+            </h1>
+        </motion.div>
+    );
+
     return (
-        toggle ?
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-
-            >
-                <h1 className="text-white text-center">
-                    {joke.answer}
-                </h1>
-            </motion.div>
-            :
-            <button
-                type="button"
-                onClick={() => setToggle(prev => !prev)}
-                className="text-white"
-            >
-                Tell me
-            </button>
-
+        <button
+            type="button"
+            onClick={() => setToggle(prev => !prev)}
+            className="text-white"
+        >
+            Tell me
+        </button >
     );
 };
 

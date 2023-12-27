@@ -4,9 +4,9 @@ import { Joke } from "@/lib/type";
 
 type Props = {
     page: number,
-    direction: number,
-    paginate: (num: number) => void,
-    jokes: Joke[]
+    jokes: Joke[],
+    direction?: number,
+    paginate?: (num: number) => void,
 }
 
 const JokeCard = ({ page, direction, paginate, jokes }: Props) => {
@@ -63,6 +63,7 @@ const JokeCard = ({ page, direction, paginate, jokes }: Props) => {
                 }
             }}
             className="px-6 pb-20 h-full flex flex-col justify-center items-center"
+            role="card"
         >
             <h2 className="max-w-md lg:max-w-lg xl:max-w-2xl text-3xl lg:text-4xl xl:text-6xl text-center mb-20">
                 {joke.question}
