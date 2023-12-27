@@ -57,9 +57,9 @@ const JokeCard = ({ page, direction, paginate, jokes }: Props) => {
             onDragEnd={(_, { offset, velocity }) => {
                 const swipe = swipePower(offset.x, velocity.x);
                 if (swipe < -swipeConfidenceThreshold) {
-                    paginate(1);
+                    paginate && paginate(1);
                 } else if (swipe > swipeConfidenceThreshold) {
-                    paginate(-1);
+                    paginate && paginate(-1);
                 }
             }}
             className="px-6 pb-20 h-full flex flex-col justify-center items-center"
