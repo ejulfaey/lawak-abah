@@ -14,6 +14,11 @@ describe('JokeCard', () => {
 
         const questionEl = screen.getByRole('heading', { level: 2 });
         expect(questionEl).toBeInTheDocument();
+
+        expect(screen.queryByTestId('joke-answer')).toBeNull();
+
+        fireEvent.click(screen.getByText('Tell me'));
+        expect(screen.getByTestId('joke-answer')).toBeInTheDocument();
     });
 
 });

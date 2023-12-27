@@ -14,6 +14,7 @@ const JokeAnswer = ({ joke }: Props) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
+            data-testid="joke-answer"
 
         >
             <h1 className="text-white text-center">
