@@ -14,11 +14,16 @@
     "@prisma/client": "^5.7.1",
     "@tabler/icons-react": "^2.44.0",
     "axios": "^1.6.2",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
     "framer-motion": "^10.16.16",
+    "lucide-react": "^0.303.0",
     "next": "14.0.4",
     "prisma": "^5.7.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "tailwind-merge": "^2.2.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.1.5",
