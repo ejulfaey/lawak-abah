@@ -3,7 +3,6 @@ import { IconArrowNarrowLeft, IconArrowNarrowRight, IconHandMove } from "@tabler
 import CardContainer from "@/components/CardContainer";
 import CaretButton from "@/components/CaretButton";
 import Head from "next/head";
-import Image from "next/image";
 import Header from "@/components/Header";
 import SwiperLabel from "@/components/SwiperLabel";
 
