@@ -2,10 +2,11 @@ import { IconX } from "@tabler/icons-react";
 import { Button } from "./ui/button";
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { Joke } from "@/lib/type";
 
 type Props = {
     onClose: () => void;
-    onOk: () => void;
+    onOk: (data: Joke) => void;
     children: React.ReactNode;
     title?: string;
 }
@@ -53,12 +54,7 @@ const JokeDialog = ({ onClose, onOk, children, title = 'Title' }: Props) => {
                             <IconX size={24} stroke={2} />
                         </Button>
                     </div>
-                    <div className="p-4">
-                        {children}
-                    </div>
-                    <div className="p-4 bg-gray-900">
-                        <Button onClick={onOk} className="w-full bg-blue-600 hover:bg-blue-700" type="button">Post</Button>
-                    </div>
+                    {children}
                 </div>
             </motion.div>
         </>

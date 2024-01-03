@@ -4,12 +4,19 @@ import Image from "next/image";
 import { Button } from "./ui/button";
 import PostJokeDialog from "./PostJokeDialog";
 import { useState } from "react";
+import { Joke } from "@/lib/type";
+import { JokeService } from "@/services/joke-service";
 
 const Header = () => {
 
     const [toggle, setToggle] = useState<boolean>(false);
     const onClose = () => setToggle(false);
-    const onOk = () => setToggle(false);
+    const onOk = async (data: Joke) => {
+        await JokeService.postJoke(data)
+            .then((res) => console.log(res))
+            .catch((err) => console.error(err))
+            .finally(() => console.log('posted!'));
+    }
 
     return (
         <>
