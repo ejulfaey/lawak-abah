@@ -45,7 +45,7 @@ const JokeDialog = ({ onClose, onOk, children, title = 'Title' }: Props) => {
                 transition={{ delay: .15, duration: .25, ease: "easeInOut" }}
                 exit={{ opacity: 0 }}
                 className="fixed inset-0 z-40 flex justify-center items-center px-4 md:px-0">
-                <div className="max-w-lg w-full bg-gray-800 shadow-lg rounded-2xl overflow-hidden">
+                <div className="max-w-lg w-full bg-black shadow-lg rounded-2xl overflow-hidden">
                     <div className="relative p-4">
                         <div className="text-center">
                             <h1 className="text-lg font-medium">{title}</h1>
