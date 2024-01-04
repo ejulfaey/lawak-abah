@@ -5,6 +5,7 @@ import CaretButton from "@/components/CaretButton";
 import Head from "next/head";
 import Header from "@/components/Header";
 import SwiperLabel from "@/components/SwiperLabel";
+import { Toaster } from "@/components/ui/toaster";
 
 const App = () => {
 
@@ -51,6 +52,7 @@ const App = () => {
           </CaretButton>
         </main>
       </div>
+      <Toaster />
     </>
   );
 };

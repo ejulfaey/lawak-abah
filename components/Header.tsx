@@ -6,16 +6,30 @@ import PostJokeDialog from "./PostJokeDialog";
 import { useState } from "react";
 import { Joke } from "@/lib/type";
 import { JokeService } from "@/services/joke-service";
+import { useToast } from "@/components/ui/use-toast"
 
 const Header = () => {
 
-    const [toggle, setToggle] = useState<boolean>(false);
+    const [toggle, setToggle] = useState<boolean>(true);
+    const { toast } = useToast();
     const onClose = () => setToggle(false);
     const onOk = async (data: Joke) => {
-        await JokeService.postJoke(data)
-            .then((res) => console.log(res))
-            .catch((err) => console.error(err))
-            .finally(() => setToggle(false));
+
+        toast({
+            title: "Success!",
+            description: "Your joke has been posted",
+        });
+
+        // await JokeService.postJoke(data)
+        //     .then((res) => console.log(res))
+        //     .catch((err) => console.error(err))
+        //     .finally(() => {
+        //         toast({
+        //             title: "Success!",
+        //             description: "Your joke has been posted",
+        //         });
+        //         setToggle(false);
+        //     });
     }
 
     return (
