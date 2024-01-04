@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { IconArrowNarrowLeft, IconArrowNarrowRight, IconHandMove } from "@tabler/icons-react";
+import { IconArrowNarrowLeft, IconArrowNarrowRight } from "@tabler/icons-react";
 import CardContainer from "@/components/CardContainer";
 import CaretButton from "@/components/CaretButton";
 import Head from "next/head";

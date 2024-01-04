@@ -10,7 +10,7 @@ import { useToast } from "@/components/ui/use-toast"
 
 const Header = () => {
 
-    const [toggle, setToggle] = useState<boolean>(true);
+    const [toggle, setToggle] = useState<boolean>(false);
     const { toast } = useToast();
     const onClose = () => setToggle(false);
     const onOk = async (data: Joke) => {
