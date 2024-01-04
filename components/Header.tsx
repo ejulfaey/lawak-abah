@@ -15,21 +15,16 @@ const Header = () => {
     const onClose = () => setToggle(false);
     const onOk = async (data: Joke) => {
 
-        toast({
-            title: "Success!",
-            description: "Your joke has been posted",
-        });
-
-        // await JokeService.postJoke(data)
-        //     .then((res) => console.log(res))
-        //     .catch((err) => console.error(err))
-        //     .finally(() => {
-        //         toast({
-        //             title: "Success!",
-        //             description: "Your joke has been posted",
-        //         });
-        //         setToggle(false);
-        //     });
+        await JokeService.postJoke(data)
+            .then((res) => console.log(res))
+            .catch((err) => console.error(err))
+            .finally(() => {
+                toast({
+                    title: "Success!",
+                    description: "Your joke has been posted",
+                });
+                setToggle(false);
+            });
     }
 
     return (
