@@ -37,6 +37,23 @@ describe("PostJokeDialog", () => {
 
     });
 
+    test("Not call onOk if any fields are not fill", () => {
+
+        render(<PostJokeDialog {...props} />);
+
+        const questionEl = screen.getByPlaceholderText("Your question?");
+        const answerEl = screen.getByPlaceholderText("Your answer?");
+        const buttonEl = screen.getByText("Post");
+
+        fireEvent.change(questionEl, {
+            target: { value: "Test Question" },
+        });
+
+        fireEvent.submit(buttonEl);
+        expect(props.onClose).not.toBeCalled();
+
+    });
+
     test("Calls onOk when required fields are filled", () => {
         render(<PostJokeDialog {...props} />);
 

@@ -43,7 +43,7 @@ const App = () => {
         <Header />
         <main className="flex-1">
           <CardContainer page={page} direction={direction} paginate={paginate} />
-          <SwiperLabel />
+          {/* <SwiperLabel /> */}
           <CaretButton onClick={() => paginate(1)} direction="left-4">
             <IconArrowNarrowLeft />
           </CaretButton>
