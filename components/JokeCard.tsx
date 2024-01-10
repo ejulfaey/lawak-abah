@@ -1,7 +1,7 @@
 import { motion, wrap } from "framer-motion";
 import JokeAnswer from "./JokeAnswer";
 import { Joke } from "@/lib/type";
-import { IconCheck, IconThumbDown, IconThumbUp, IconX } from "@tabler/icons-react";
+import JokeButtons from "./JokeButtons";
 
 type Props = {
     page: number,
@@ -72,14 +72,7 @@ const JokeCard = ({ page, direction, paginate, jokes }: Props) => {
                 </h2>
                 <JokeAnswer joke={jokes[pageIndex]} />
             </div>
-            <div className="p-6 w-full flex justify-evenly md:justify-center gap-x-0 md:gap-10">
-                <button type="button" className="p-2 rounded border border-red-500">
-                    <IconX stroke={1} size={40} className="stroke-red-500" />
-                </button>
-                <button type="button" className="p-2 rounded border border-green-500">
-                    <IconCheck stroke={1} size={40} className="stroke-green-500" />
-                </button>
-            </div>
+            <JokeButtons id={jokes[pageIndex].id as number} />
         </motion.div>
     );
 };

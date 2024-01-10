@@ -38,7 +38,7 @@ const Header = () => {
                         <h1>Lawak Abah</h1>
                     </div>
                 </div>
-                <Button onClick={() => setToggle(true)} className="bg-blue-600 hover:bg-blue-700">Post A Joke</Button>
+                <Button onClick={() => setToggle(true)} className="border-2 border-white">Post A Joke</Button>
             </header>
             {toggle && <PostJokeDialog onClose={onClose} onOk={onOk} />}
         </>
