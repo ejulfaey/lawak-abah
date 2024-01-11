@@ -23,11 +23,13 @@ export default async function handler(
     res.json(result);
   } if (req.method === 'POST') {
     const data = req.body;
-    const result = await prisma.joke.create({ data: {
-      ...data,
-      userId: 1,
-      languageId: 1
-    } });
+    const result = await prisma.joke.create({
+      data: {
+        ...data,
+        userId: 1,
+        languageId: 1
+      }
+    });
     res.json(result);
   } else {
     res.status(405).json({ message: 'Method not allowed' });
