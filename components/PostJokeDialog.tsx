@@ -49,19 +49,23 @@ const PostJokeDialog = ({ onClose, onOk }: Props) => {
                         name="question"
                         onChange={onChange}
                         placeholder="Your question?"
-                        className={`${(attemptSubmission && errors.question) ? 'border-red-400 focus:ring-red-500' : 'border-black/40 focus:ring-blue-500'} px-4 py-2 block w-full bg-gray-300 text-gray-800 border rounded-lg placeholder:text-gray-500 focus:outline-none focus:ring-2`}></textarea>
+                        className={`${(attemptSubmission && errors.question) ? 'border-red-400 focus:ring-red-500' : 'border-black/40 focus:ring-white'} px-4 py-2 block w-full bg-gray-300 text-gray-800 border rounded-lg placeholder:text-gray-500 focus:outline-none focus:ring-2`}></textarea>
                     <input
                         value={joke.answer}
                         name="answer"
                         onChange={onChange}
                         placeholder="Your answer?"
-                        className={`${(attemptSubmission && errors.question) ? 'border-red-400 focus:ring-red-500' : 'border-black/40 focus:ring-blue-500'} px-4 py-2 block w-full bg-gray-300 text-gray-800 border rounded-lg placeholder:text-gray-500 focus:outline-none focus:ring-2`} />
+                        className={`${(attemptSubmission && errors.question) ? 'border-red-400 focus:ring-red-500' : 'border-black/40 focus:ring-white'} px-4 py-2 block w-full bg-gray-300 text-gray-800 border rounded-lg placeholder:text-gray-500 focus:outline-none focus:ring-2`} />
                 </div>
-                <Button
-                    disabled={!(attemptSubmission && allFieldsFilled)}
-                    className="mt-6 px-4 py-2 leading-6 w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-800">
-                    Post
-                </Button>
+                {
+                    (attemptSubmission && allFieldsFilled)
+                    &&
+                    <Button
+                        disabled={!(attemptSubmission && allFieldsFilled)}
+                        className="mt-6 px-4 py-2 leading-6 w-full bg-white text-black border-2 border-white disabled:bg-white disabled:text-black">
+                        Post
+                    </Button>
+                }
             </form>
         </JokeDialog>
     );
