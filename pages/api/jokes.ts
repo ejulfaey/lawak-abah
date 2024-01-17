@@ -21,7 +21,7 @@ export default async function handler(
         }
       }
     });
-    res.json(result);
+    res.status(200).json(result);
   } if (req.method === 'POST') {
     const data = req.body;
     const result = await prisma.joke.create({
@@ -31,7 +31,7 @@ export default async function handler(
         languageId: 1
       }
     });
-    res.json(result);
+    res.status(200).json(result);
   } else {
     res.status(405).json({ message: 'Method not allowed' });
   }
