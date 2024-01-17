@@ -19,7 +19,7 @@ const CardContainer = (props: Props) => {
     const fetchData = () => {
         setLoading(true);
         JokeService.getJokes()
-            .then((res: any) => setJokes(res))
+            .then((res: any) => { setJokes(res); console.log(res); })
             .catch((err: any) => console.error(err))
             .finally(() => setLoading(false));
     }

@@ -39,6 +39,11 @@ const JokeCard = ({ page, direction, paginate, jokes }: Props) => {
     };
     const pageIndex = wrap(0, jokes.length, page);
     const joke = jokes[pageIndex]
+    const likeCounter = joke.jokeCounter?.filter(x => x.status).length;
+    const dislikeCounter = joke.jokeCounter?.filter(x => !x.status).length;
+
+    console.log('likeCounter', likeCounter);
+    console.log('dislikeCounter', dislikeCounter);
 
     return (
         <motion.div
@@ -70,9 +75,9 @@ const JokeCard = ({ page, direction, paginate, jokes }: Props) => {
                 <h2 className="mb-10 w-full text-3xl lg:text-4xl xl:text-6xl text-center">
                     {joke.question}
                 </h2>
-                <JokeAnswer joke={jokes[pageIndex]} />
+                <JokeAnswer joke={joke} />
             </div>
-            <JokeButtons id={jokes[pageIndex].id as number} />
+            <JokeButtons id={joke.id as number} likeCounter={likeCounter ?? 0} dislikeCounter={dislikeCounter ?? 0} />
         </motion.div>
     );
 };

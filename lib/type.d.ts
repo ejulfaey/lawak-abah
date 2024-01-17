@@ -2,6 +2,7 @@ export type Joke = {
     id?: number;
     question: string;
     answer: string;
+    jokeCounter?: Counter[];
 }
 
 export type Counter = {
