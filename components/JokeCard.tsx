@@ -39,8 +39,8 @@ const JokeCard = ({ page, direction, paginate, jokes }: Props) => {
     };
     const pageIndex = wrap(0, jokes.length, page);
     const joke = jokes[pageIndex]
-    const likeCounter = joke.jokeCounter?.filter(x => x.status).length;
-    const dislikeCounter = joke.jokeCounter?.filter(x => !x.status).length;
+    const likeCounter = joke?.jokeCounter?.filter(x => x.status).length;
+    const dislikeCounter = joke?.jokeCounter?.filter(x => !x.status).length;
 
     console.log('likeCounter', likeCounter);
     console.log('dislikeCounter', dislikeCounter);
