@@ -8,7 +8,10 @@ type Props = {
     onOk: (data: Joke) => void;
 }
 
-type JokeErrors = Partial<Joke>
+type JokeErrors = {
+    answer: boolean,
+    question: boolean,
+}
 
 const PostJokeDialog = ({ onClose, onOk }: Props) => {
 
