@@ -13,7 +13,11 @@ export default async function handler(
         question: true,
         answer: true,
         isDark: true,
-        jokeCounter: true,
+        jokeCounter: {
+          select: {
+            status: true
+          }
+        },
         language: {
           select: {
             name: true
